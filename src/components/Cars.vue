@@ -2,20 +2,27 @@
   <div class="cars">
     <section class="sidebar">
       <h2>Purchase price</h2>
-      <input value="{{price}}"/>
+      <input type="number" v-model="price" placeholder="$">
+
+     <input v-model="price" type="range" min="0" max="100000"  id="fader" step="1">
+
+
+
 
       <h2>Trade-in value</h2>
-      <input class="sf"/>
-      <input class="tf"/>
+      <input type="number" v-model="value" class="sf">
+      <input type="number" v-model="valuePercent" class="tf" placeholder="%">
+
+      <input  v-model="valuePercent" type="range" min="0" max="100" id="fader" step="1">
+
 
 
     </section>
     <section class="listing">
       <h1>Available cars</h1>
       <p>You can adjust the purchase price and/or trade-in value of your loan. The cars for which you qualify will update accordingly.</p>
+      <div v-if="car.price >= price" class="main-card" v-for="car in cars">
 
-
-      <div v-for="car in cars | filterBy 'price'" class="main-card">
       <span class="left">{{car.title | capitalize}} Car</span> <span class="right">${{car.price | comma}}</span>
 
       <img v-bind:src="'./static/image-car-'+ car.title +'.png'">
@@ -36,7 +43,8 @@ export default {
       // its initial state.
       cars: '',
       price: '',
-      value: ''
+      value: '',
+      valuePercent: ''
 
     }
   },
@@ -45,12 +53,24 @@ export default {
     this.getCars()
   },
 
+  watch: {
+    valuePercent: function (v) {
+      if (v > 0) {
+        this.getValue()
+      }
+    }
+  },
+
   methods: {
     getCars: function () {
       this.$http('https://api.fieldbook.com/v1/56f1f21cb5bbdf03006a34b3/cars').then(function (response) {
         var cars = response.data
         this.$set('cars', cars)
       })
+    },
+    getValue: function () {
+      var totalValue = this.price * (this.valuePercent / 100)
+      this.$set('value', totalValue)
     }
   }
 
