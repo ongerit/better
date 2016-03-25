@@ -22,6 +22,7 @@ $white : #fff;
 h1{
 	color:$white;
 	float: left;
+  font-weight: normal;
 }
 
 nav{

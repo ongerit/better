@@ -36,6 +36,7 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: normal;
   box-sizing: border-box;
+  font-weight: normal;
 
 }
 

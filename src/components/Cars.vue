@@ -4,16 +4,33 @@
       <h2>Purchase price</h2>
       <input type="number" v-model="price" placeholder="$">
 
-     <input v-model="price" type="range" min="0" max="100000"  id="fader" step="1">
-
-
+     <div class="slider">
+        <label class="decrease" for="fader" class="range">0K</label>
+        <span class="approval">
+          Your Approval Range
+        </span>
+        <span class="dots">
+        <input  v-model="price" type="range" min="0" max="100000"  id="fader" step="1">
+      </span>
+        <output for="fader" class="increase">100K</output>
+    <div>
 
 
       <h2>Trade-in value</h2>
       <input type="number" v-model="value" class="sf">
       <input type="number" v-model="valuePercent" class="tf" placeholder="%">
 
-      <input  v-model="valuePercent" type="range" min="0" max="100" id="fader" step="1">
+    <div class="slider">
+        <label class="decrease" for="fader" id="range">0%</label>
+        <span class="approval">
+          Your Approval Range
+        </span>
+        <span class="dots">
+         <input  v-model="valuePercent" type="range" min="0" max="100" id="fader2" step="1">
+      </span>
+        <output for="fader2" class="increase">100%</output>
+    <div>
+
 
 
 
@@ -83,10 +100,56 @@ $pale-teal : #76bcc2;
 $white : #fff;
 $better-color-text-dark : #848c8b;
 $better-color-primary-dark : #153d39;
-$better-color-primary-dark : #153d39;
 $greeny-blue : #47abb4;
 $better-color-primarymedium : #31766f;
+*{
+ font-weight: normal;
+}
 
+
+.approval{
+    float: none;
+    position: absolute;
+    color: $pale-teal;
+    font-size: 10px;
+    margin: -10px 0 0 0px;
+}
+input{
+  color: $better-color-primary-dark;
+  font-size: 1em;
+}
+
+.dots{
+  padding: .5em 0;
+  border: 1px dashed;
+  border: 1px dashed $pale-teal; 
+}
+
+.slider{
+  float: none;
+  padding: 1.2em 0;
+}
+
+#fader{
+  width: 60%;
+  display: inline-block;
+  vertical-align: middle; 
+}
+
+#fader2{
+  width: 70%;
+  display: inline-block;
+  vertical-align: middle; 
+}
+
+.increase, .decrease{
+  clear: both;
+  display: inline-block; 
+  color: $better-color-primary-dark;
+  font-size: 12px;
+   
+
+}
 .cars{
   padding-top: 32px;
 }
@@ -151,12 +214,13 @@ $better-color-primarymedium : #31766f;
   padding-left: 30px; 
   
   h1{
-  font-family: Helvetica-Light;
+  font-family: Helvetica;
   font-size: 38px;
   color: $better-color-primary-dark;
   float: none;
   clear: both;
   margin: 0;
+  font-weight: normal;
   }
 
   .main-card{
