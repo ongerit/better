@@ -80,8 +80,16 @@ export default {
 
   methods: {
     getCars: function () {
+        // If working on my local env use save json file
       if (document.location.hostname === 'localhost') {
         this.$http('/static/json/cars').then(
+        function (response) {
+          console.log(response)
+          this.$set('cars', response.data)
+        })
+      // Dynamically pull from fieldbook
+      } else {
+        this.$http('https://api.fieldbook.com/v1/56f1f21cb5bbdf03006a34b3/cars').then(
         function (response) {
           console.log(response)
           this.$set('cars', response.data)
