@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "record_url": "https://fieldbook.com/records/56f1f373b5bbdf03006a34c5",
+    "title": "red",
+    "price": 29500,
+    "tiv": null,
+    "apr_p": null,
+    "apr_t": null
+  },
+  {
+    "id": 2,
+    "record_url": "https://fieldbook.com/records/56f1f3782bb9b70300c3a62e",
+    "title": "blue",
+    "price": 29000,
+    "tiv": null,
+    "apr_p": null,
+    "apr_t": null
+  },
+  {
+    "id": 3,
+    "record_url": "https://fieldbook.com/records/56f1f37a2bb9b70300c3a62f",
+    "title": "black",
+    "price": 28000,
+    "tiv": null,
+    "apr_p": null,
+    "apr_t": null
+  },
+  {
+    "id": 4,
+    "record_url": "https://fieldbook.com/records/56f1f37e2bb9b70300c3a630",
+    "title": "yellow",
+    "price": 27500,
+    "tiv": null,
+    "apr_p": null,
+    "apr_t": null
+  },
+  {
+    "id": 5,
+    "record_url": "https://fieldbook.com/records/56f1f382b5bbdf03006a34c6",
+    "title": "silver",
+    "price": 26000,
+    "tiv": null,
+    "apr_p": null,
+    "apr_t": null
+  },
+  {
+    "id": 6,
+    "record_url": "https://fieldbook.com/records/56f1f3862bb9b70300c3a631",
+    "title": "green",
+    "price": 25000,
+    "tiv": null,
+    "apr_p": null,
+    "apr_t": null
+  }
+]
