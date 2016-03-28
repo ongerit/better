@@ -59,7 +59,7 @@ export default {
       // preserves its current state and we are modifying
       // its initial state.
       cars: '',
-      price: '',
+      price: 0,
       value: '',
       valuePercent: ''
 
