@@ -5,14 +5,14 @@
       <input type="number" v-model="price" placeholder="$">
 
      <div class="slider">
-        <label class="decrease" for="fader" class="range">0K</label>
+        <label class="decrease" for="fader" class="range">$0</label>
         <span class="approval">
           Your Approval Range
         </span>
         <span class="dots">
         <input  v-model="price" type="range" min="0" max="100000"  id="fader" step="1">
       </span>
-        <output for="fader" class="increase">100K</output>
+        <output for="fader" class="increase"> $100K</output>
     <div>
 
 
@@ -28,7 +28,7 @@
         <span class="dots">
          <input  v-model="valuePercent" type="range" min="0" max="100" id="fader2" step="1">
       </span>
-        <output for="fader2" class="increase">100%</output>
+        <output for="fader2" class="increase"> 100%</output>
     <div>
 
 
@@ -80,10 +80,13 @@ export default {
 
   methods: {
     getCars: function () {
-      this.$http('https://api.fieldbook.com/v1/56f1f21cb5bbdf03006a34b3/cars').then(function (response) {
-        var cars = response.data
-        this.$set('cars', cars)
-      })
+      if (document.location.hostname === 'localhost') {
+        this.$http('/static/json/cars').then(
+        function (response) {
+          console.log(response)
+          this.$set('cars', response.data)
+        })
+      }
     },
     getValue: function () {
       var totalValue = this.price * (this.valuePercent / 100)
@@ -151,7 +154,7 @@ input{
 
 }
 .cars{
-  padding-top: 32px;
+  padding: 32px 0;
 }
 
 .left{
@@ -173,6 +176,7 @@ input{
   padding: 16px;
   box-sizing: border-box;
   float: left;
+  margin: 0 32px 30px 15px;
   
   h2{
   font-family: Helvetica;
@@ -211,7 +215,7 @@ input{
   display: inline-block;
   float: none;
   clear: both;
-  padding-left: 30px; 
+  margin: 0 30px  0 15px;
   
   h1{
   font-family: Helvetica;
